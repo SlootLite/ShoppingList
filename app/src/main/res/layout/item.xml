@@ -17,6 +17,7 @@
         android:layout_toRightOf="@id/checkBuy"
         android:id="@+id/name"
         tools:text="Большие ножницы"
+        android:textSize="@dimen/standart_text"
         android:padding="@dimen/padding"
         android:textColor="@color/gray"
         android:gravity="center_vertical"
@@ -28,6 +29,7 @@
     <Button
         android:id="@+id/delete"
         android:text="@string/delete"
+        android:textSize="@dimen/small_text"
         android:layout_alignBottom="@id/name"
         android:layout_alignTop="@id/name"
         android:layout_alignParentEnd="true"
