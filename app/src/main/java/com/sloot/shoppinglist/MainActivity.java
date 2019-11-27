@@ -1,5 +1,6 @@
 package com.sloot.shoppinglist;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,16 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.sloot.shoppingbll.ItemShopService;
 import com.sloot.shoppingdal.ItemShop;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity {
-    ItemShopService itemShopService = new ItemShopService();
+    ItemShopService itemShopService;
     ShoppingListAdapter shoppingAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        itemShopService = new ItemShopService(this);
         shoppingAdapter = new ShoppingListAdapter(this, itemShopService);
 
         final ListView items = findViewById(R.id.items);
@@ -52,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void addNewProduct(String text, boolean checkBuy) {
         if(text.length() > 0) {

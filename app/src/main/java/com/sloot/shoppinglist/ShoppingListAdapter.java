@@ -92,8 +92,9 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                v.setEnabled(false);
                 int position = (int) v.getTag();
-                itemShopService.removeItem(position); // удалим элемент из списка
+                itemShopService.removeItem(itemShopService.getItem(position)); // удалим элемент из списка
                 notifyDataSetChanged(); // скажем что данные изменились, чтобы список перерисовался
             }
         });
