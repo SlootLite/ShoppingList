@@ -56,7 +56,7 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
 
     private void initTextView(View view, int position, ItemShop item) {
         final TextView nameText = view.findViewById(R.id.name); // возьмем текстовое представление
-        nameText.setText(item.name); // установим текст
+        nameText.setText(item.getName()); // установим текст
         nameText.setTag(position);
         nameText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
             }
         });
 
-        if(item.buy)
+        if(item.isBuy())
             nameText.setPaintFlags(nameText.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG); // если отмечено, то зачеркнем
         else
             nameText.setPaintFlags(nameText.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG)); // если не отмечено, то уберем зачеркивание
@@ -74,7 +74,7 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
 
     private void initCheckbox(View view, int position, ItemShop item) {
         CheckBox cbBuy = view.findViewById(R.id.checkBuy); // возьмем чекбокс
-        cbBuy.setChecked(item.buy);
+        cbBuy.setChecked(item.isBuy());
         cbBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +92,6 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.setEnabled(false);
                 int position = (int) v.getTag();
                 itemShopService.removeItem(itemShopService.getItem(position)); // удалим элемент из списка
                 notifyDataSetChanged(); // скажем что данные изменились, чтобы список перерисовался

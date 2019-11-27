@@ -44,7 +44,7 @@ public class ItemShopRepository implements IItemShopRepository {
     @Override
     public void removeItem(ItemShop item) {
         adapter.open();
-        adapter.delete(item.id);
+        adapter.delete(item.getId());
         adapter.close();
     }
 }

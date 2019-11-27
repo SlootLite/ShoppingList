@@ -20,7 +20,7 @@ public class ItemShopService {
     }
 
     public void addItem(ItemShop item) {
-        item.id = itemShopRepository.addItem(item);
+        item.setId(itemShopRepository.addItem(item));
         itemShops.add(item);
     }
 
@@ -31,10 +31,10 @@ public class ItemShopService {
 
     public void toggleBuyItem(int index) {
         ItemShop item = itemShops.get(index);
-        if(item.buy)
-            item.buy = false;
+        if(item.isBuy())
+            item.setBuy(false);
         else
-            item.buy = true;
+            item.setBuy(true);
         itemShops.set(index, item);
         itemShopRepository.editItem(item);
     }

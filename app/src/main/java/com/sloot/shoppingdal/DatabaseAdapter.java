@@ -67,8 +67,8 @@ public class DatabaseAdapter {
     public long insert(ItemShop item){
         ContentValues cv = new ContentValues();
 
-        cv.put(DatabaseHelper.COLUMN_NAME, item.name);
-        cv.put(DatabaseHelper.COLUMN_BUY, item.buy ? 1 : 0);
+        cv.put(DatabaseHelper.COLUMN_NAME, item.getName());
+        cv.put(DatabaseHelper.COLUMN_BUY, item.isBuy() ? 1 : 0);
 
         return  database.insert(DatabaseHelper.TABLE, null, cv);
     }
@@ -82,9 +82,9 @@ public class DatabaseAdapter {
 
     public long update(ItemShop item){
 
-        String whereClause = DatabaseHelper.COLUMN_ID + "=" + item.id;
+        String whereClause = DatabaseHelper.COLUMN_ID + "=" + item.getId();
         ContentValues cv = new ContentValues();
-        cv.put(DatabaseHelper.COLUMN_BUY, item.buy ? 1 : 0);
+        cv.put(DatabaseHelper.COLUMN_BUY, item.isBuy() ? 1 : 0);
         return database.update(DatabaseHelper.TABLE, cv, whereClause, null);
     }
 }
