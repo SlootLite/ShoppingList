@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <CheckBox
+        android:checked="true"
+        android:buttonTint="@color/gray"
+        android:id="@+id/checkBuy"
+        android:background="@color/light_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name"
+        android:layout_alignTop="@id/name"/>
+    <TextView
+        android:layout_toRightOf="@id/checkBuy"
+        android:id="@+id/name"
+        tools:text="Большие ножницы"
+        android:padding="@dimen/padding"
+        android:textColor="@color/gray"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/padding_small"
+        android:layout_toLeftOf="@id/delete"
+        android:background="@color/light_gray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/delete"
+        android:text="@string/delete"
+        android:layout_alignBottom="@id/name"
+        android:layout_alignTop="@id/name"
+        android:layout_alignParentEnd="true"
+        android:padding="@dimen/padding"
+        android:background="@color/light_red"
+        android:textColor="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+</RelativeLayout>
