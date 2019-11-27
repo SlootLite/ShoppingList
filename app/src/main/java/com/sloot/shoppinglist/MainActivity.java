@@ -19,15 +19,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ItemShopService itemShopService = new ItemShopService();
-
-    ArrayList<ItemShop> products = new ArrayList<>();
     ShoppingListAdapter shoppingAdapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        shoppingAdapter = new ShoppingListAdapter(this, products);
+        shoppingAdapter = new ShoppingListAdapter(this, itemShopService);
 
         final ListView items = findViewById(R.id.items);
         items.setAdapter(shoppingAdapter);
@@ -58,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
     private void addNewProduct(String text, boolean checkBuy) {
         if(text.length() > 0) {
             ((EditText)findViewById(R.id.name)).setText("");
-            products.add(new ItemShop(text.trim(), checkBuy));
 
-            //itemShopService.addItem(new ItemShop(text.trim(), checkBuy));
+            itemShopService.addItem(new ItemShop(shoppingAdapter.getCount(), text.trim(), checkBuy));
 
             shoppingAdapter.notifyDataSetChanged();
         }
