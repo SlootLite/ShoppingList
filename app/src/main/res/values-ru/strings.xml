@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Shopping list</string>
-    <string name="enter_name">I need to buy…</string>
+    <string name="app_name">Список покупок</string>
+    <string name="enter_name">Купить…</string>
     <string name="add">+</string>
-    <string name="delete">remove</string>
+    <string name="delete">удалить</string>
     <string name="ad_id_app">ca-app-pub-2847636183214106~3898551051</string>
     <string name="banner_ad_id">ca-app-pub-2847636183214106/6873882964</string>
 </resources>

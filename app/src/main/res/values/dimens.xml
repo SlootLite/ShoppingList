@@ -5,4 +5,5 @@
     <dimen name="standart_text">17sp</dimen>
     <dimen name="small_text">12sp</dimen>
     <dimen name="very_big_text">30sp</dimen>
+    <dimen name="big_padding">55dp</dimen>
 </resources>
