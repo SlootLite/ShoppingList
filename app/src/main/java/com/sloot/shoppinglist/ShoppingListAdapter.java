@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sloot.shoppingbll.ItemShopService;
@@ -51,6 +53,7 @@ public class ShoppingListAdapter extends BaseAdapter { // Адаптер. Шту
         initCheckbox(view, position, item);
 
         initButtonDelete(view, position);
+
         return view;
     }
 
